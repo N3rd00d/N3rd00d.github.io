@@ -20,7 +20,7 @@ text_skin: forest # "default" (default), "dark", "forest", "ocean", "chocolate",
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 url     : https://CHiiLD.github.io
 baseurl : # does not include hostname
-title   : sh41107.log
+title   : Nerdwood.log
 description: > # this means to ignore newlines until "Language & timezone"
   게임개발자 너드우드
 
@@ -35,7 +35,7 @@ timezone: Asia/Seoul # see https://en.wikipedia.org/wiki/List_of_tz_database_tim
 ##############################
 author:
   type      : # "person" (default), "organization"
-  name      : 너드트리
+  name      : 너드우드
   url       :
   avatar    : # path or url of avatar image (square)
   bio       : 7년차 게임개발자
