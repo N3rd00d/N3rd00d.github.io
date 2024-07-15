@@ -15,7 +15,7 @@ tags: ["ComfyUI","Stable Diffusion","paint3d"]
 
 # 소개
 
-Paint3D Nodes는 [Paint3D](https://arxiv.org/pdf/2312.13913)를 기반으로 만든 3D 모델 텍스쳐 인페인팅 ComfyUI 커스텀 노드이다.
+ComfyUI-Paint3D-Nodes는 [Paint3D](https://arxiv.org/pdf/2312.13913)를 기반으로 만든 3D 모델 텍스쳐 인페인팅 ComfyUI 커스텀 노드이다.
 
 ![](/images/f32c26fa-da5f-4e6d-9d00-034ed643230d-image.png)
 
