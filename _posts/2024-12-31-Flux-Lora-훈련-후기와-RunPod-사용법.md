@@ -31,11 +31,11 @@ tags: ["Flux","Lora","RunPod","Stable Diffusion","traning"]
 
 Lora는 도트64스타일의 2등신의 치비 캐릭터 생성을 목표로 하였다. 다음은 각 베이스모델별 간단한 훈련/생성 후기이다.
 
- - SD1.5 - 샘플 품질 낮음. 
-   ![](/images/89c225da-0de9-40d1-a038-b39ae530bcef-image.png)
- - SDXL - 데스크탑 풀로드, Kohya에서 OOM발생으로 OneTrainer로 교체하여 훈련진행, 샘플링 결과물은 그럭저럭이나 도트 스타일이 균일하지 않음.(본디 SDXL이 그런 경향을 보임)
-   ![](/images/f52a0cc9-c369-491d-805c-04f1ba4ecb91-image.png)
-   ![](/images/f8b1e910-33b9-45f3-8e12-fbb1b15d4579-image.png)
+ - SD1.5 - 샘플 품질 낮음.
+![](/images/89c225da-0de9-40d1-a038-b39ae530bcef-image.png)
+ - SDXL - 데스크탑 풀로드, Kohya에서 OOM발생으로 OneTrainer로 교체하여 훈련진행, 샘플링 결과물은 그럭저럭이나 도트 스타일이 균일하지 않음.(본디 SDXL이 그런 경향을 보임)   
+![](/images/f52a0cc9-c369-491d-805c-04f1ba4ecb91-image.png)
+![](/images/f8b1e910-33b9-45f3-8e12-fbb1b15d4579-image.png)
  - Flux1.d - 최소 VRAM 24GB을 요구하나 FluxGym VRAM 12GB로 맞추고 훈련 시작, 소요시간이 11시간이 걸려 중도포기
 
 Flux1.d 부터는 지금의 GPU로는 어렵다고 판단, Flux Lora를 만들기 위해 클라우드 GPU 대여 서비스 RunPod 사용.
@@ -44,6 +44,7 @@ Flux1.d 부터는 지금의 GPU로는 어렵다고 판단, Flux Lora를 만들�
 
 ## 1. 비용 충전
 금액을 사전에 충전해야한다. $10부터 충전 가능하다.
+
 ![](/images/430e91d7-6fbc-414d-b6de-c753b548f175-image.png)
 
 ## 2. 대여할 GPU 선택
