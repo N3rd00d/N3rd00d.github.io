@@ -385,8 +385,10 @@ visualize_training_progress(image_folder)
 
 # 소감 및 잡담
 - RunPod로 시간과 비용 절감. 하지만 RTX4090 사고 싶음.
+  ![](/images/4f486bc1-b01b-456f-aff1-cecb029732ac-image.png)
+
 - 옵타마이저 Prodigy의 훈련 성과가 압도적이다. reddit에서 많이 언급된 이유가 있다.
 - flux를 위한 img2vid가 없다.
 - openpose controlnet은 artifacts 발생. strength를 0.6까지 내리면 되지만 포즈가 잘 적용되지 않는다.
   ![](/images/0f822fe7-b261-4b56-9ef2-6a4b7a162d5b-image.png)
-- DWPose Estimator가 도트스타일 인식불가.
+- DWPose Estimator는 도트 스타일 인식이 안된다. 훈련데이터세트 편향이 사유.
