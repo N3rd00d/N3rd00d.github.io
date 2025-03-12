@@ -18,7 +18,7 @@ J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} [R(\tau)]
 $$
 
 - $\tau \sim \pi_\theta$는 정책 $\pi_\theta$에 따라 생성된 궤적 $\tau$를 의미한다.
-- $\mathbb{E}_{\tau \sim \pi_\theta}$는 정책 $\pi_\theta$에 따라 생성된 모든 가능한 궤적 $\tau$에 대한 기대값을 계산한다.
+- $E_{\tau \sim \pi_\theta}$는 정책 $\pi_\theta$에 따라 생성된 모든 가능한 궤적 $\tau$에 대한 기대값을 계산한다.
 - $R(\tau)$는 특정 궤적 $\tau$의 누적 보상으로, $R(\tau) = r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ...$로 표현된다.
 
 좋은 정책은 기대 보상을 최대화하는 정책이다. 목적 함수 $J(\theta)$는 __가능한 모든 궤적에 대한 기대 보상의 평균을 계산함으로써 정책의 성능을 수치화한다.__
