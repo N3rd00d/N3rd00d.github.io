@@ -41,7 +41,7 @@ REINFORCE 알고리즘은 다음과 같은 단순한 단계로 구현된다:
 
 1. **샘플 수집**: 현재 정책 $\pi_\theta$로 에피소드를 실행하여 상태, 행동, 보상으로 구성된 궤적을 수집한다
 2. **리턴 계산**: 각 시간 단계 $t$에서의 리턴 $G_t = \sum_{k=t}^{T} \gamma^{k-t} r_{k+1}$을 계산한다
-3. **그래디언트 계산**: $\nabla_\theta J(\theta) \approx \sum_{t=0}^{T-1} G_t \nabla_\theta \log \pi_\theta(a_t|s_t)$를 계산한다
+3. **그래디언트 계산**: $\nabla_\theta J(\theta) \approx \sum_{t=0}^{T-1} G_t \nabla_\theta \log \pi_\theta(a_t{\mid}s_t)$를 계산한다
 4. **파라미터 업데이트**: $\theta \leftarrow \theta + \alpha \nabla_\theta J(\theta)$로 파라미터를 업데이트한다
 5. 최적 정책에 도달할 때까지 반복한다
 
