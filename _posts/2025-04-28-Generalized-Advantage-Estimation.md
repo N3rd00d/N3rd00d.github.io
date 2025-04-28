@@ -1,0 +1,122 @@
+---
+title: "Generalized Advantage Estimation"
+description: "GAE(Generalized Advantage Estimation)는 강화학습에서 어드밴티지 함수를 효과적으로 추정하는 방법론이다. "
+date: 2025-04-28T14:16:02.965Z
+tags: ["ActorCritic","GAE","GeneralizedAdvantageEstimation","a2c","강화학습","딥러닝","어드밴티지","정책최적화"]
+---
+# GAE: 일반화된 어드밴티지 추정
+
+GAE(Generalized Advantage Estimation)는 강화학습에서 어드밴티지 함수를 효과적으로 추정하는 방법론이다. 이 방법은 특히 A2C(Advantage Actor-Critic)와 같은 Actor-Critic 알고리즘에서 핵심적인 역할을 하며, 정책 그래디언트의 분산을 줄이면서도 편향을 적절히 제어하는 균형점을 제공한다.
+
+## 어드밴티지 함수
+
+강화학습에서 어드밴티지 함수(Advantage Function)는 특정 상태에서 특정 행동의 상대적 가치를 측정한다. 어드밴티지 함수는 기본적으로 다음과 같이 정의된다:
+
+$$
+A(s, a) = Q(s, a) - V(s)
+$$
+
+여기서:
+- $Q(s, a)$: 상태 $s$에서 행동 $a$를 취했을 때의 기대 보상
+- $V(s)$: 상태 $s$의 가치 (평균 보상)
+
+어드밴티지 함수는 정책 그래디언트 방법에서 학습 신호로 사용되며, 양수 값은 평균보다 더 좋은 행동을, 음수 값은 평균보다 나쁜 행동을 의미한다.
+
+## GAE 이전의 추정 방법들
+
+실제 강화학습 환경에서는 정확한 어드밴티지 값을 계산하기 어렵다. 어드밴티지를 추정하는 방법에는 다양한 접근법이 있으며, 각각 분산(variance)과 편향(bias) 사이의 트레이드오프를 갖는다:
+
+1. **단일 스텝 TD 오류 (1-step TD error)**: 
+   $$\hat{A}_t^{(1)} = r_t + \gamma V(s_{t+1}) - V(s_t) = \delta_t$$
+   - 낮은 분산, 높은 편향
+
+2. **몬테카를로 추정 (Monte Carlo Estimation)**:
+   $$\hat{A}_t^{(\infty)} = \sum_{i=0}^{\infty} \gamma^i r_{t+i} - V(s_t)$$
+   - 높은 분산, 낮은 편향
+
+3. **n-스텝 리턴 (n-step Return)**:
+   $$\hat{A}_t^{(n)} = \sum_{i=0}^{n-1} \gamma^i r_{t+i} + \gamma^n V(s_{t+n}) - V(s_t)$$
+   - 중간 수준의 분산과 편향
+
+## GAE의 수학적 정의
+
+GAE는 위의 다양한 n-스텝 추정치를 가중 평균하여 분산-편향 트레이드오프를 효과적으로 조절하는 방법이다. GAE는 다음과 같이 정의된다:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \sum_{l=0}^{\infty} (\gamma\lambda)^l \delta_{t+l}$$
+
+여기서:
+- $\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)$는 TD 오류
+- $\gamma$는 할인 계수 (discount factor)
+- $\lambda$는 GAE 파라미터 (0과 1 사이의 값)
+
+이 식은 다음과 같이 재귀적 형태로 표현할 수도 있다:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \delta_t + \gamma\lambda\hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)}$$
+
+## GAE의 재귀적 표현 도출
+
+GAE의 정의는:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \sum_{l=0}^{\infty} (\gamma\lambda)^l \delta_{t+l}$$
+
+이 공식을 단계별로 전개하면:
+
+1. 먼저 원래 공식을 항별로 나열해보자:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \delta_t + (\gamma\lambda) \delta_{t+1} + (\gamma\lambda)^2 \delta_{t+2} + (\gamma\lambda)^3 \delta_{t+3} + ...$$
+
+2. 다음으로 $\hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)}$를 살펴보면:
+
+$$\hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)} = \delta_{t+1} + (\gamma\lambda) \delta_{t+2} + (\gamma\lambda)^2 \delta_{t+3} + ...$$
+
+3. 이제 $\hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)}$에 $\gamma\lambda$를 곱하면:
+
+$$\gamma\lambda \hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)} = \gamma\lambda\delta_{t+1} + (\gamma\lambda)^2 \delta_{t+2} + (\gamma\lambda)^3 \delta_{t+3} + ...$$
+
+4. 원래 GAE 공식과 비교하면:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \delta_t + [\gamma\lambda\delta_{t+1} + (\gamma\lambda)^2 \delta_{t+2} + ...]$$
+
+5. 대괄호 안의 표현이 $\gamma\lambda \hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)}$와 동일함을 알 수 있다. 따라서:
+
+$$\hat{A}_t^{\text{GAE}(\gamma, \lambda)} = \delta_t + \gamma\lambda\hat{A}_{t+1}^{\text{GAE}(\gamma, \lambda)}$$
+
+## GAE의 재귀적 계산 방법
+
+실제 구현에서 GAE는 종종 역순으로(마지막 타임스텝부터 첫 타임스텝까지) 계산된다. 이러한 재귀적 계산은 다음 코드 패턴을 따른다:
+
+```python
+gae = 0
+for t in reversed(range(T)):
+    delta = rewards[t] + gamma * values[t+1] * (1 - dones[t]) - values[t]
+    gae = delta + gamma * lambda * (1 - dones[t]) * gae
+    advantages[t] = gae
+```
+
+여기서:
+- `gae`는 계산 과정에서 각 시간 스텝의 GAE 값을 저장
+- `(1 - dones[t])`는 에피소드가 종료되었으면 0, 아니면 1
+
+## GAE와 λ 파라미터의 역할
+
+GAE에서 λ 파라미터는 분산-편향 트레이드오프를 조절하는 핵심 역할을 한다:
+
+- λ = 0: 단일 스텝 TD 오류만 사용 (낮은 분산, 높은 편향)
+- λ = 1: 몬테카를로 추정에 가까움 (높은 분산, 낮은 편향)
+- 0 < λ < 1: 두 극단 사이의 균형점
+
+실제 적용에서는 λ = 0.95와 같이 1에 가까운 값이 자주 사용되며, 이는 편향을 낮게 유지하면서도 분산을 어느 정도 감소시키는 효과가 있다.
+
+## A2C 알고리즘에서의 GAE 활용
+
+A2C 알고리즘에서 정책 업데이트는 다음과 같은 그래디언트를 사용한다:
+
+$$\nabla_\theta J(\theta) = \mathbb{E} \left[ A(s,a) \nabla_\theta \log \pi_\theta(a|s) \right]$$
+
+여기서 어드밴티지 추정에 GAE를 사용하면 다음과 같이 표현할 수 있다:
+
+$$\nabla_\theta J(\theta) = \mathbb{E} \left[ \hat{A}_t^{\text{GAE}(\gamma, \lambda)} \nabla_\theta \log \pi_\theta(a_t|s_t) \right]$$
+
+## 결론
+
+분산과 편향 사이의 최적 균형을 제공하는 GAE는 A2C와 PPO 같은 현대 강화학습 알고리즘의 핵심 요소로 자리잡았으며, 효율적인 재귀적 계산 방식과 적응 가능한 하이퍼파라미터를 통해 다양한 복잡한 환경에서 안정적이고 효과적인 학습을 가능하게 한다.
