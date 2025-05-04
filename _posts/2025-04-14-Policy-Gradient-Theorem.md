@@ -1,6 +1,6 @@
 ---
 title: "Policy Gradient Theorem"
-description: "Policy Gradient Theorem  Policy Gradient Theorem은 강화학습에서 정책 파라미터에 대한 목적 함수의 그래디언트를 계산 가능한 형태로 표현한다. 이를 통해 에이전트가 환경과 상호작용하며 얻는 보상을 최대화하는 정책을 최적화할 수 있다. 이 정리는 REINFORCE, Actor-Critic, PPO 같은 알고리즘의 수학적 기..."
+description: "Policy Gradient Theorem  Policy Gradient Theorem은 강화학습에서 정책 파라미터에 대한 목적 함수의 그래디언트를 계산 가능한 형태로 표현한다. 이를 통해 에이전트가 환경과 상호작용하며 얻는 보상을 최대화하는 정책을 최적화할 수 있다."
 date: 2025-04-14T13:56:01.931Z
 tags: ["PolicyGradient","강화학습","기계학습","딥러닝","인공지능","정책최적화"]
 ---
