@@ -3,6 +3,7 @@ title: "ComfyUI-Paint3D-Nodes 소개와 개발 후기"
 description: "AI로 3D모델의 텍스쳐를 생성해보기."
 date: 2024-07-12T11:23:55.977Z
 tags: ["ComfyUI","Stable Diffusion","paint3d"]
+thumbnail: /images/f32c26fa-da5f-4e6d-9d00-034ed643230d-image.png
 ---
 > **주의! 본 게시글의 독자는 Stable Diffusion과 ComfyUI에 대한 사전지식을 가지고 있음을 가정하고 작성하였음**
 

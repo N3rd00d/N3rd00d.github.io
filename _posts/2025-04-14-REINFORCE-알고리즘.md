@@ -3,6 +3,7 @@ title: "REINFORCE 알고리즘"
 description: "REINFORCE 알고리즘은 Policy Gradient Theorem을 실제로 구현한 몬테카를로 기반의 정책 최적화 방법이다. 이 알고리즘은 실제 경험에서 얻은 데이터를 활용하여 정책 파라미터를 직접 최적화한다.REINFORCE 알고리즘은 Policy Gradient"
 date: 2025-04-14T14:20:34.428Z
 tags: ["PolicyGradient","reinforce","강화학습","기계학습","인공지능"]
+thumbnail: /images/10d62131-70c2-45c5-a278-bd0c35a0893f-image.png
 ---
 # REINFORCE 알고리즘
 

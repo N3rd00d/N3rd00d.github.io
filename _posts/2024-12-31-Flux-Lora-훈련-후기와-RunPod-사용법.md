@@ -3,6 +3,7 @@ title: "Flux Lora 훈련 후기와 RunPod 사용법"
 description: "Flux Lora 훈련법과 RunPod 사용법을 간단히 알아보자."
 date: 2024-12-31T19:38:40.841Z
 tags: ["Flux","Lora","RunPod","Stable Diffusion","traning"]
+thumbnail: /images/2f934018-feee-48e7-a1b0-35ff98f5472d-image.png
 ---
 # 들어가며
 저자의 현재 데스크탑의 사양은 다음과 같다.

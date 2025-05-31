@@ -3,6 +3,7 @@ title: "유나이트 서울 2025 - Mobile native debugging and ANR 노트정리"
 description: "유나이트 서울 2019 이후로 코로나가 터지고 유니티도 터지고 아무튼 간만에 개최되는 행사이다. 사람은 많았고 강의실은 더웠다."
 date: 2025-04-28T14:59:32.401Z
 tags: ["2025","ANR","Unity","debugging","mobile","unity seoul","이희소"]
+thumbnail: /images/c58a6b41-8dc2-4a51-b548-d7a459669c51-image.png
 ---
 유나이트 서울 2019 이후로 코로나가 터지고 유니티도 터지고 아무튼 간만에 개최되는 행사이다. 
 사람은 많았고 강의실은 더웠다. 봄이었다.
