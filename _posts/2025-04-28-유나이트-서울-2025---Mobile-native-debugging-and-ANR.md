@@ -1,6 +1,6 @@
 ---
 title: "유나이트 서울 2025 - Mobile native debugging and ANR"
-description: "유니티 코리아 유나이트 2025 서울 행사에 참석했다. 이 포스트는 "Mobile Native Debugging and ANR" 강연 내용을 정리한 것이다."
+description: "유니티 코리아 유나이트 2025 서울 행사에 참석했다. 이 포스트는 'Mobile Native Debugging and ANR' 강연 내용을 정리한 것이다."
 date: 2025-04-28T14:59:32.401Z
 tags: ["2025","ANR","Unity","debugging","mobile","unity seoul","이희소"]
 thumbnail: /images/9b566aac-a3fb-4f65-bcf1-0a75b4e9b361-image.png
